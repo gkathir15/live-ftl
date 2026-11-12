@@ -1,0 +1,18 @@
+<idea-plugin>
+    <id>dev.liveftl.preview</id>
+    <name>Live FTL Preview</name>
+    <vendor>Live FTL</vendor>
+    <icon>/icons/live-ftl.svg</icon>
+    <description>Previews FreeMarker templates as HTML or as rendered PDF pages.</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.jcef</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="dev.liveftl.preview.FtlPreviewService"/>
+        <toolWindow id="FTL Preview"
+                    anchor="right"
+                    factoryClass="dev.liveftl.preview.ui.FtlPreviewToolWindowFactory"/>
+        <postStartupActivity implementation="dev.liveftl.preview.FtlPreviewStartupActivity"/>
+    </extensions>
+</idea-plugin>
